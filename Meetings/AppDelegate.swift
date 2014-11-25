@@ -8,14 +8,40 @@
 
 import UIKit
 
+var appData = AppData()
+var committeesViewController: UIViewController = UIViewController()
+var positionsViewController: UIViewController = UIViewController()
+var newCommitteeViewController: UIViewController = UIViewController()
+var newPositionViewController: UIViewController = UIViewController()
+var editPositionViewController: UIViewController = UIViewController()
+var  editCommitteeViewController: UIViewController = UIViewController()
+
+func containsPosition(array: [Position], pos: Position) -> Bool{
+    for(var i = 0; i<array.count; i++){
+        println(array[i].id)
+        println(pos.id)
+        if(array[i].id == pos.id){
+            println("true")
+            return true
+        }
+    }
+    return false
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        var pos1: Position = Position(name: "Boss", salary: 500000)
+        var pos2: Position = Position(name: "Secretary", salary: 60000)
+        appData.addPosition(pos1)
+        appData.addPosition(pos2)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.BlackOpaque
         return true
     }
 

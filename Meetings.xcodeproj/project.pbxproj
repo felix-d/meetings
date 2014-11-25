@@ -9,11 +9,25 @@
 /* Begin PBXBuildFile section */
 		DCE3DBF21A21687E0005FD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */; };
 		DCE3DBF41A21687E0005FD39 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF31A21687E0005FD39 /* FirstViewController.swift */; };
-		DCE3DBF61A21687E0005FD39 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF51A21687E0005FD39 /* SecondViewController.swift */; };
+		DCE3DBF61A21687E0005FD39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF51A21687E0005FD39 /* SettingsViewController.swift */; };
 		DCE3DBF91A21687E0005FD39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE3DBF71A21687E0005FD39 /* Main.storyboard */; };
 		DCE3DBFB1A21687E0005FD39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE3DBFA1A21687E0005FD39 /* Images.xcassets */; };
 		DCE3DBFE1A21687E0005FD39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE3DBFC1A21687E0005FD39 /* LaunchScreen.xib */; };
 		DCE3DC0A1A21687E0005FD39 /* MeetingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DC091A21687E0005FD39 /* MeetingsTests.swift */; };
+		DCE3DC161A2169130005FD39 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DC151A2169130005FD39 /* Position.swift */; };
+		DCF40B1B1A22B52500BD69B8 /* CommitteesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF40B1A1A22B52500BD69B8 /* CommitteesViewController.swift */; };
+		DCF40B1D1A22BC6200BD69B8 /* PositionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF40B1C1A22BC6200BD69B8 /* PositionsViewController.swift */; };
+		DCF40B1F1A22BE5300BD69B8 /* NewPositionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF40B1E1A22BE5300BD69B8 /* NewPositionController.swift */; };
+		DCF40B211A22BE7600BD69B8 /* NewCommitteeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF40B201A22BE7600BD69B8 /* NewCommitteeController.swift */; };
+		DCF8857C1A22C48800AC2747 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8857B1A22C48800AC2747 /* TabBarController.swift */; };
+		DCF8857E1A22D54700AC2747 /* PickerParticipantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8857D1A22D54700AC2747 /* PickerParticipantController.swift */; };
+		DCF885801A22DA6A00AC2747 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8857F1A22DA6A00AC2747 /* AppData.swift */; };
+		DCF885821A22DAE200AC2747 /* Committee.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF885811A22DAE200AC2747 /* Committee.swift */; };
+		DCF885841A22F14000AC2747 /* EditPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF885831A22F14000AC2747 /* EditPositionViewController.swift */; };
+		DCF885861A23031900AC2747 /* 17214.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF885851A23031900AC2747 /* 17214.png */; };
+		DCF885881A2307D300AC2747 /* ParticipantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF885871A2307D300AC2747 /* ParticipantsCell.swift */; };
+		DCF8858A1A2313F800AC2747 /* EditCommitteeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF885891A2313F800AC2747 /* EditCommitteeController.swift */; };
+		DCF8858E1A23171F00AC2747 /* EditParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8858D1A23171F00AC2747 /* EditParticipantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +45,28 @@
 		DCE3DBF01A21687E0005FD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE3DBF31A21687E0005FD39 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DCE3DBF51A21687E0005FD39 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DCE3DBF51A21687E0005FD39 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DCE3DBF81A21687E0005FD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCE3DBFA1A21687E0005FD39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCE3DBFD1A21687E0005FD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DCE3DC031A21687E0005FD39 /* MeetingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE3DC081A21687E0005FD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE3DC091A21687E0005FD39 /* MeetingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsTests.swift; sourceTree = "<group>"; };
+		DCE3DC151A2169130005FD39 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Position.swift; path = Meetings/Position.swift; sourceTree = "<group>"; };
+		DCE3DC471A22A6E70005FD39 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		DCF40B1A1A22B52500BD69B8 /* CommitteesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitteesViewController.swift; sourceTree = "<group>"; };
+		DCF40B1C1A22BC6200BD69B8 /* PositionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionsViewController.swift; sourceTree = "<group>"; };
+		DCF40B1E1A22BE5300BD69B8 /* NewPositionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPositionController.swift; sourceTree = "<group>"; };
+		DCF40B201A22BE7600BD69B8 /* NewCommitteeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommitteeController.swift; sourceTree = "<group>"; };
+		DCF8857B1A22C48800AC2747 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DCF8857D1A22D54700AC2747 /* PickerParticipantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerParticipantController.swift; sourceTree = "<group>"; };
+		DCF8857F1A22DA6A00AC2747 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		DCF885811A22DAE200AC2747 /* Committee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Committee.swift; sourceTree = "<group>"; };
+		DCF885831A22F14000AC2747 /* EditPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPositionViewController.swift; sourceTree = "<group>"; };
+		DCF885851A23031900AC2747 /* 17214.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 17214.png; path = ../../../Downloads/17214.png; sourceTree = "<group>"; };
+		DCF885871A2307D300AC2747 /* ParticipantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsCell.swift; sourceTree = "<group>"; };
+		DCF885891A2313F800AC2747 /* EditCommitteeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCommitteeController.swift; sourceTree = "<group>"; };
+		DCF8858D1A23171F00AC2747 /* EditParticipantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditParticipantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +90,8 @@
 		DCE3DBE31A21687E0005FD39 = {
 			isa = PBXGroup;
 			children = (
+				DCE3DC151A2169130005FD39 /* Position.swift */,
+				DCF885811A22DAE200AC2747 /* Committee.swift */,
 				DCE3DBEE1A21687E0005FD39 /* Meetings */,
 				DCE3DC061A21687E0005FD39 /* MeetingsTests */,
 				DCE3DBED1A21687E0005FD39 /* Products */,
@@ -80,9 +111,22 @@
 			isa = PBXGroup;
 			children = (
 				DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */,
+				DCF885871A2307D300AC2747 /* ParticipantsCell.swift */,
+				DCF8858D1A23171F00AC2747 /* EditParticipantCell.swift */,
+				DCF8857F1A22DA6A00AC2747 /* AppData.swift */,
+				DCF885891A2313F800AC2747 /* EditCommitteeController.swift */,
+				DCF40B201A22BE7600BD69B8 /* NewCommitteeController.swift */,
+				DCF8857B1A22C48800AC2747 /* TabBarController.swift */,
+				DCE3DBF51A21687E0005FD39 /* SettingsViewController.swift */,
 				DCE3DBF31A21687E0005FD39 /* FirstViewController.swift */,
-				DCE3DBF51A21687E0005FD39 /* SecondViewController.swift */,
+				DCF885831A22F14000AC2747 /* EditPositionViewController.swift */,
+				DCF40B1A1A22B52500BD69B8 /* CommitteesViewController.swift */,
+				DCF40B1C1A22BC6200BD69B8 /* PositionsViewController.swift */,
+				DCF40B1E1A22BE5300BD69B8 /* NewPositionController.swift */,
+				DCF8857D1A22D54700AC2747 /* PickerParticipantController.swift */,
 				DCE3DBF71A21687E0005FD39 /* Main.storyboard */,
+				DCE3DC471A22A6E70005FD39 /* MyPlayground.playground */,
+				DCF885851A23031900AC2747 /* 17214.png */,
 				DCE3DBFA1A21687E0005FD39 /* Images.xcassets */,
 				DCE3DBFC1A21687E0005FD39 /* LaunchScreen.xib */,
 				DCE3DBEF1A21687E0005FD39 /* Supporting Files */,
@@ -198,6 +242,7 @@
 				DCE3DBF91A21687E0005FD39 /* Main.storyboard in Resources */,
 				DCE3DBFE1A21687E0005FD39 /* LaunchScreen.xib in Resources */,
 				DCE3DBFB1A21687E0005FD39 /* Images.xcassets in Resources */,
+				DCF885861A23031900AC2747 /* 17214.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +260,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCE3DBF61A21687E0005FD39 /* SecondViewController.swift in Sources */,
+				DCF40B1B1A22B52500BD69B8 /* CommitteesViewController.swift in Sources */,
+				DCF885821A22DAE200AC2747 /* Committee.swift in Sources */,
+				DCF40B1F1A22BE5300BD69B8 /* NewPositionController.swift in Sources */,
+				DCE3DBF61A21687E0005FD39 /* SettingsViewController.swift in Sources */,
+				DCF8857E1A22D54700AC2747 /* PickerParticipantController.swift in Sources */,
+				DCF8857C1A22C48800AC2747 /* TabBarController.swift in Sources */,
+				DCF8858A1A2313F800AC2747 /* EditCommitteeController.swift in Sources */,
+				DCF40B211A22BE7600BD69B8 /* NewCommitteeController.swift in Sources */,
+				DCF885841A22F14000AC2747 /* EditPositionViewController.swift in Sources */,
+				DCF8858E1A23171F00AC2747 /* EditParticipantCell.swift in Sources */,
 				DCE3DBF21A21687E0005FD39 /* AppDelegate.swift in Sources */,
 				DCE3DBF41A21687E0005FD39 /* FirstViewController.swift in Sources */,
+				DCE3DC161A2169130005FD39 /* Position.swift in Sources */,
+				DCF40B1D1A22BC6200BD69B8 /* PositionsViewController.swift in Sources */,
+				DCF885801A22DA6A00AC2747 /* AppData.swift in Sources */,
+				DCF885881A2307D300AC2747 /* ParticipantsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +467,7 @@
 				DCE3DC0F1A21687E0005FD39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCE3DC101A21687E0005FD39 /* Build configuration list for PBXNativeTarget "MeetingsTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +476,7 @@
 				DCE3DC121A21687E0005FD39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
