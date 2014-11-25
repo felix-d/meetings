@@ -14,13 +14,22 @@ class EditPositionViewController: UIViewController {
     @IBOutlet weak var salary: UITextField!
     
     override func viewWillAppear(animated: Bool) {
-        positionName.text = appData.positions[appData.positionIndex].name
-        salary.text = String(appData.positions[appData.positionIndex].salary)
+        
+        //We update textfields of current positionID
+        positionName.text = appData.getPosition(appData.positionId)!.name
+        salary.text = String(appData.getPosition(appData.positionId)!.salary)
     }
+    
     @IBAction func Editposition(sender: AnyObject) {
-        appData.positions[appData.positionIndex].name = positionName.text
-        appData.positions[appData.positionIndex].salary = salary.text.toInt()!
+        
+        //We update the position
+        appData.getPosition(appData.positionId)!.name = positionName.text
+        appData.getPosition(appData.positionId)!.salary = salary.text.toInt()!
+        
+        //We refresh committees informations
         appData.refreshCommittees()
+        
+        //We go back to positionsviewcontroller
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

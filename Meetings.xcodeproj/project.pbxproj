@@ -111,9 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */,
+				DCF8857F1A22DA6A00AC2747 /* AppData.swift */,
 				DCF885871A2307D300AC2747 /* ParticipantsCell.swift */,
 				DCF8858D1A23171F00AC2747 /* EditParticipantCell.swift */,
-				DCF8857F1A22DA6A00AC2747 /* AppData.swift */,
 				DCF885891A2313F800AC2747 /* EditCommitteeController.swift */,
 				DCF40B201A22BE7600BD69B8 /* NewCommitteeController.swift */,
 				DCF8857B1A22C48800AC2747 /* TabBarController.swift */,

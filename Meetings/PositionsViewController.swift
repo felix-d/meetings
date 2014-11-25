@@ -56,7 +56,7 @@ class PositionsViewController: UITableViewController, UITableViewDataSource, UIT
 
         var edit = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Edit", handler:{action, indexpath in
             
-            appData.positionIndex = indexPath.row
+            appData.positionId = appData.positions[indexPath.row].id
             self.goToEditPositionView()
 
         });

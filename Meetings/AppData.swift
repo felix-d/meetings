@@ -18,8 +18,8 @@ class AppData {
     var positions: [Position] = []
     var committees: [Committee] = []
     
-    var positionIndex = 0
-    var positionId = 0
+
+    var positionId: NSUUID = NSUUID()
     var committeeIndex = 0
     
     var pickerPositions: [Position] = []
