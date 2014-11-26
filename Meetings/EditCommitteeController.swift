@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditCommitteeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditCommitteeController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
  
    
@@ -20,8 +20,16 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         self.navigationItem.title = "Edit Committee"
         
+        var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Bordered, target: self, action: "popToHome")
+        self.navigationItem.leftBarButtonItem = cancelButton
         
     }
+    
+    func popToHome(){
+        println("pop")
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         appData.currentState = state.EDITCOMMITTEE
         //If we come from committee controller
@@ -48,7 +56,14 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
         self.committeeName.text = appData.tempCommitteeName
         
     }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        committeeName.resignFirstResponder()
+        return true
+    }
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkForDoneButton()
+    }
     //Done button action
     @IBAction func doneEditing(sender: UIBarButtonItem) {
         //We replace the old positions with the new positions
@@ -95,4 +110,12 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
             
         }
     }
+    func checkForDoneButton(){
+        if(appData.tempParticipants.isEmpty || committeeName.text == "") {
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        } else {
+            self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+    }
+
 }

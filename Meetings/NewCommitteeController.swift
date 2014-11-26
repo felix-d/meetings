@@ -8,12 +8,13 @@
 
 import UIKit
 
-class NewCommitteeController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NewCommitteeController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
         
     @IBOutlet weak var committeeName: UITextField!
     @IBOutlet weak var participantsTable: UITableView!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     //We add a committee
     @IBAction func addCommittee(sender: UIBarButtonItem) {
         
@@ -35,12 +36,33 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
 
    override func viewDidLoad() {
         //We change state to use right picker
+    var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "popVC")
     
+    self.navigationItem.leftBarButtonItem = cancelButton
+    
+    }
+    func popVC(){
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidDisappear(animated: Bool) {
       
     }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        println("here")
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+       checkForDoneButton()
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        checkForDoneButton()
+    }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
          appData.currentState = state.NEWCOMMITTEE
@@ -52,12 +74,14 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
             committeeName.text = ""
             appData.pickerPositions = appData.positions
         }
-        
+       checkForDoneButton()
         //we started editing
         appData.startedEditingCommittee = true
     }
     
-
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.committeeName.resignFirstResponder()
+    }
        
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appData.tempParticipants.count;
@@ -74,7 +98,16 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
             appData.pickerPositions.append(appData.tempParticipants[indexPath.row])
             appData.tempParticipants.removeAtIndex(indexPath.row)
             participantsTable.reloadData()
+            checkForDoneButton()
             
+        }
+    }
+    
+    func checkForDoneButton(){
+        if(appData.tempParticipants.isEmpty || committeeName.text == "") {
+            self.navigationItem.rightBarButtonItem?.enabled = false
+        } else {
+            self.navigationItem.rightBarButtonItem?.enabled = true
         }
     }
 

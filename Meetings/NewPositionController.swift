@@ -17,8 +17,23 @@ class NewPositionController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var salary: UITextField!
     
     override func viewDidLoad() {
-        self.newPosition.delegate = self
+        self.navigationItem.title = "New Salary Levels"
+                 self.newPosition.delegate = self
         self.salary.delegate = self
+        positionsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("positions") as UIViewController
+        var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "popVC")
+        
+        self.navigationItem.leftBarButtonItem = cancelButton
+
+    }
+    
+    func popVC(){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        newPosition.becomeFirstResponder()
+
     }
     
 
@@ -28,7 +43,8 @@ class NewPositionController: UIViewController, UITextFieldDelegate {
         appData.addPosition(position)
         newPosition.text = ""
         salary.text = ""
-        self.navigationController?.popViewControllerAnimated(true)
+       
+            self.navigationController?.popViewControllerAnimated(true)
         
     }
     
@@ -36,11 +52,15 @@ class NewPositionController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    
+    func textFieldDidEndEditing(textField: UITextField) {
+
+    }
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         textField.resignFirstResponder()
         return true;
     }
+    
+
     
 }

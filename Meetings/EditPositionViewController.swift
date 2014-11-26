@@ -13,6 +13,19 @@ class EditPositionViewController: UIViewController {
     @IBOutlet weak var positionName: UITextField!
     @IBOutlet weak var salary: UITextField!
     
+    override func viewDidLoad() {
+         self.navigationItem.title = "Edit Salary Levels"
+        var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "popVC")
+        
+        self.navigationItem.leftBarButtonItem = cancelButton
+        
+    }
+    func popVC(){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
+   
+    
     override func viewWillAppear(animated: Bool) {
         
         //We update textfields of current positionID

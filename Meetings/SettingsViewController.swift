@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var settings = ["Committees", "Positions"]
+    var settings = ["Committees", "Salary Levels"]
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class SettingsViewController: UITableViewController, UITableViewDataSource, UITa
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if(section == 0) {
-            return "Committees and positions"
+            return "Committees and salary levels"
         }
         return nil
     }

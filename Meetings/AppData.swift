@@ -12,14 +12,17 @@ enum state {
     case HOMEPAGE, NEWCOMMITTEE, EDITCOMMITTEE
 }
 
-
+enum FirstLaunch {
+    case BEGIN, ADDEDPOSITION, ADDEDCOMMITTEE
+}
 class AppData {
-    var firstLaunch = true
+    var firstLaunch = FirstLaunch.BEGIN
     var positions: [Position] = []
     var committees: [Committee] = []
     
 
     var positionId: NSUUID = NSUUID()
+    var committeeId: NSUUID = NSUUID()
     var committeeIndex = 0
     
     var pickerPositions: [Position] = []
@@ -43,6 +46,16 @@ class AppData {
         }
         return nil
     }
+    
+    func getCommittee(id: NSUUID) -> Committee? {
+        for(index, c) in enumerate(committees) {
+            if committees[index].id == id {
+                return committees[index]
+            }
+        }
+        return nil
+    }
+    
     func refreshCommittees(){
         for c in committees {
             for (index,p) in enumerate(c.positions) {
@@ -66,6 +79,15 @@ class AppData {
         }
     }
 
+    func returnCurrentCommitte() -> Committee? {
+        for(var i=0;i<committees.count; i++){
+            if committees[i].id == committeeId {
+                return committees[i]
+            }
+        }
+        return nil
+    }
+    
     func addPosition(p: Position){
         positions.append(p)
         positions.sort({$0.name < $1.name})
