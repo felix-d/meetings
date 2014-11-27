@@ -38,11 +38,11 @@ class PickerParticipantController: UIViewController, UIPickerViewDataSource, UIP
         var gestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped:")
         gestureRecognizer.delegate = self
         //We set the right picker to be used
-        switch appData.currentState {
-        case state.NEWCOMMITTEE:
+        switch appData.currentCommitteeAction {
+        case CommitteeAction.NEWCOMMITTEE:
             currentPicker = myPicker
             break
-        case state.EDITCOMMITTEE:
+        case CommitteeAction.EDITCOMMITTEE:
             currentPicker = myPicker2
             break
         default:

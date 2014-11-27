@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var meetingGoal: UITextField!
     @IBOutlet weak var startMeeting: UIButton!
     
+    @IBOutlet weak var finger: UIImageView!
     var test = true
     
     override func viewDidLoad() {
@@ -67,7 +68,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         //Else we edit current committee
         else {
             
-            appData.committeeIndex = appData.currentCommittee
+//            appData.committeeIndex = appData.currentCommittee
             self.navigationController?.pushViewController(editCommitteeViewController, animated: true)
         }
         
@@ -91,10 +92,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             if(test) { self.navigationItem.backBarButtonItem?.title = " " }
             self.navigationItem.rightBarButtonItem?.enabled = false
             committeeName.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0), forState: UIControlState.Normal)
-            changeCommittee.enabled = false
-            budget.enabled = false
-            meetingGoal.enabled = false
-            startMeeting.enabled = false
+            changeCommittee.hidden = true
+            finger.hidden = false
+            budget.hidden = true
+            meetingGoal.hidden = true
+            startMeeting.hidden = true
             startMeeting.setTitleColor(UIColor(red: 122.0/255.0, green: 122.0/255.0, blue: 122.0/255, alpha: 0.2), forState: UIControlState.Normal)
         }
         else if appData.committees.count == 0 {
@@ -102,21 +104,27 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             committeeName.setTitle("2. Tap to create a committee", forState: UIControlState.Normal)
             self.navigationItem.rightBarButtonItem?.enabled = true
             committeeName.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0), forState: UIControlState.Normal)
-            changeCommittee.enabled = false
-            budget.enabled = false
-            meetingGoal.enabled = false
-            startMeeting.enabled = false
+            finger.hidden = false
+            changeCommittee.hidden = true
+            budget.hidden = true
+            meetingGoal.hidden = true
+            startMeeting.hidden = true
             startMeeting.setTitleColor(UIColor(red: 122.0/255.0, green: 122.0/255.0, blue: 122.0/255, alpha: 0.2), forState: UIControlState.Normal)
 
         }
         else {
 
             self.navigationItem.backBarButtonItem?.title = ""
-            committeeName.setTitle(appData.committees[appData.currentCommittee].name, forState: UIControlState.Normal)
+            if let x = appData.getCurrentCommitte(){
+                committeeName.setTitle(x.name, forState: UIControlState.Normal)
+                
+            }
              self.navigationItem.rightBarButtonItem?.enabled = true
             committeeName.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
-            budget.enabled = true
-            meetingGoal.enabled = true
+            budget.hidden = false
+            startMeeting.hidden = false
+            meetingGoal.hidden = false
+            finger.hidden = true
             startMeeting.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0), forState: UIControlState.Normal)
 
             if appData.committees.count > 1 {
@@ -132,6 +140,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        if appData.positions.count == 0 || appData.committees.count == 0 {
+            editCommittee(committeeName)
+        }
+        
        self.view.endEditing(true)
     }
     override func didReceiveMemoryWarning() {

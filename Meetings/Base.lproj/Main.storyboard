@@ -69,9 +69,16 @@
                                     <action selector="startMeeting:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6o5-c5-f3h"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="double-tap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kef-eT-EYO">
+                                <rect key="frame" x="180" y="241" width="240" height="235"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="V24-0M-EZh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kZe-bR-Rfh" firstAttribute="top" secondItem="Kef-eT-EYO" secondAttribute="bottom" constant="36" id="2oz-ee-jzh"/>
                             <constraint firstItem="Apb-YK-0Xx" firstAttribute="top" secondItem="9ZB-U9-zQg" secondAttribute="bottom" constant="114" id="2p2-He-wuG"/>
                             <constraint firstItem="oeb-ql-3NH" firstAttribute="top" secondItem="Rj3-kf-mEb" secondAttribute="bottom" constant="22" id="50J-nW-Kfs"/>
                             <constraint firstItem="kZe-bR-Rfh" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="5cj-XQ-Y7q"/>
@@ -81,12 +88,14 @@
                             <constraint firstItem="Rj3-kf-mEb" firstAttribute="top" secondItem="Apb-YK-0Xx" secondAttribute="bottom" constant="35" id="I8K-d5-Vpv"/>
                             <constraint firstItem="0cS-9f-r95" firstAttribute="top" secondItem="kZe-bR-Rfh" secondAttribute="bottom" constant="58" id="K5r-hI-qNl"/>
                             <constraint firstItem="oeb-ql-3NH" firstAttribute="trailing" secondItem="Rj3-kf-mEb" secondAttribute="trailing" id="LiO-rV-ibN"/>
+                            <constraint firstItem="Kef-eT-EYO" firstAttribute="top" secondItem="9ZB-U9-zQg" secondAttribute="bottom" constant="177" id="QgE-fq-SfB"/>
                             <constraint firstItem="Rj3-kf-mEb" firstAttribute="leading" secondItem="oeb-ql-3NH" secondAttribute="leading" id="XfD-8V-42M"/>
                             <constraint firstItem="3En-rW-q6t" firstAttribute="bottom" secondItem="Apb-YK-0Xx" secondAttribute="bottom" id="dVz-OY-8TW"/>
                             <constraint firstItem="Rj3-kf-mEb" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="54" id="f0m-6q-5ja"/>
                             <constraint firstItem="kZe-bR-Rfh" firstAttribute="centerX" secondItem="oeb-ql-3NH" secondAttribute="centerX" id="hCq-Qq-gIg"/>
                             <constraint firstItem="kZe-bR-Rfh" firstAttribute="trailing" secondItem="3En-rW-q6t" secondAttribute="trailing" id="hn1-Nm-22h"/>
                             <constraint firstItem="3En-rW-q6t" firstAttribute="top" secondItem="9ZB-U9-zQg" secondAttribute="bottom" constant="28" id="mwb-JG-12n"/>
+                            <constraint firstItem="Kef-eT-EYO" firstAttribute="centerX" secondItem="Rj3-kf-mEb" secondAttribute="centerX" id="ySf-Et-TAN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Meeting$" id="UpA-6y-nyr">
@@ -103,13 +112,14 @@
                         <outlet property="budget" destination="Rj3-kf-mEb" id="EjV-we-3fc"/>
                         <outlet property="changeCommittee" destination="Apb-YK-0Xx" id="zpi-fN-V6D"/>
                         <outlet property="committeeName" destination="3En-rW-q6t" id="gaB-5o-K6p"/>
+                        <outlet property="finger" destination="Kef-eT-EYO" id="FuM-74-n0S"/>
                         <outlet property="meetingGoal" destination="oeb-ql-3NH" id="PrM-Tu-iUR"/>
                         <outlet property="startMeeting" destination="kZe-bR-Rfh" id="K4y-U1-f0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2535" y="-321.12676056338023"/>
+            <point key="canvasLocation" x="2535" y="-322"/>
         </scene>
         <!--Manage-->
         <scene sceneID="fVc-J7-V69">
@@ -712,8 +722,26 @@
             </objects>
             <point key="canvasLocation" x="2205" y="1095.4225352112676"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Len-oX-kFG">
+            <objects>
+                <viewController id="B7f-cg-kzQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6JW-g5-ckv"/>
+                        <viewControllerLayoutGuide type="bottom" id="zZX-xQ-pBR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pZG-6A-aUa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SWq-w7-hXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
+        <image name="double-tap.png" width="256" height="256"/>
         <image name="first" width="30" height="30"/>
     </resources>
 </document>

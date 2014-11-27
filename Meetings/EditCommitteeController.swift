@@ -13,37 +13,47 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
  
    
     @IBOutlet weak var participantsTable: UITableView!
-    
     @IBOutlet weak var committeeName: UITextField!
     
     
     override func viewDidLoad() {
+        
+        //We set the navigation title
         self.navigationItem.title = "Edit Committee"
         
+        //We set the left navigation button to cancel, which calls popToHome()
         var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Bordered, target: self, action: "popToHome")
         self.navigationItem.leftBarButtonItem = cancelButton
         
     }
     
+    //We go back to home
     func popToHome(){
-        println("pop")
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewWillAppear(animated: Bool) {
-        appData.currentState = state.EDITCOMMITTEE
+        
+        //We start editing a committee
+        appData.currentCommitteeAction = CommitteeAction.EDITCOMMITTEE
+        
         //If we come from committee controller
         if !appData.startedEditingCommittee {
             
-            //We set the participants to the committee participants
-            appData.tempParticipants = appData.committees[appData.committeeIndex].getPositions()
+            //We set the participants to fill the table with the current committee salary levels
+            if let x = appData.getCurrentCommitte()?.positions {
+                 appData.tempParticipants = x
+            }
             
             //we set the text field to the name of the committee
-            appData.tempCommitteeName = appData.committees[appData.committeeIndex].name
+            if let x = appData.getCurrentCommitte()?.name {
+                appData.tempCommitteeName = x
+            }
             
-            println(appData.committees[appData.committeeIndex].positions.count)
             //we set the picker positions
-            appData.pickerPositions = appData.getRemainingPositions(appData.committees[appData.committeeIndex])
+            if let x = appData.getCurrentCommitte()? {
+                appData.pickerPositions = appData.getRemainingPositions(x)
+            }
         }
         
         //stays true while we aren't back to first page or committees controller
@@ -56,27 +66,18 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
         self.committeeName.text = appData.tempCommitteeName
         
     }
+    
+    //Return keyboard
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         committeeName.resignFirstResponder()
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        checkForDoneButton()
-    }
     //Done button action
     @IBAction func doneEditing(sender: UIBarButtonItem) {
-        //We replace the old positions with the new positions
-        appData.committees[appData.committeeIndex].positions = appData.tempParticipants
         
-        //We replace the committee name
-        appData.committees[appData.committeeIndex].name = self.committeeName.text
-        
-        //We sort the positions in the committee
-        appData.committees[appData.committeeIndex].positions.sort({$0.name > $1.name})
-        
-        //We clear temporary data
-        appData.clearTemp()
+        //We modify the current committee
+        appData.modifyCurrentCommittee(self.committeeName.text, ps: appData.tempParticipants)
         
         //Pop the view to go back to Committee Controller
         self.navigationController?.popViewControllerAnimated(true)

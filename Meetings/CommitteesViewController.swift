@@ -65,7 +65,7 @@ class CommitteesViewController: UITableViewController, UITableViewDataSource, UI
         });
         
         var edit = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Edit", handler:{action, indexpath in
-            appData.committeeIndex = indexPath.row
+            appData.committeeId = appData.committees[indexPath.row].id
             self.goToEditCommitteeView()
             
         });

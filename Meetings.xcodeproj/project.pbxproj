@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC03445D1A269F6D004EAA4C /* double-tap.png in Resources */ = {isa = PBXBuildFile; fileRef = DC03445C1A269F6D004EAA4C /* double-tap.png */; };
 		DCE3DBF21A21687E0005FD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */; };
 		DCE3DBF41A21687E0005FD39 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF31A21687E0005FD39 /* FirstViewController.swift */; };
 		DCE3DBF61A21687E0005FD39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF51A21687E0005FD39 /* SettingsViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC03445C1A269F6D004EAA4C /* double-tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "double-tap.png"; path = "../../../Downloads/double-tap.png"; sourceTree = "<group>"; };
 		DCE3DBEC1A21687E0005FD39 /* Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meetings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE3DBF01A21687E0005FD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		DCE3DBEE1A21687E0005FD39 /* Meetings */ = {
 			isa = PBXGroup;
 			children = (
+				DC03445C1A269F6D004EAA4C /* double-tap.png */,
 				DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */,
 				DCF8857F1A22DA6A00AC2747 /* AppData.swift */,
 				DCF885871A2307D300AC2747 /* ParticipantsCell.swift */,
@@ -243,6 +246,7 @@
 				DCE3DBFE1A21687E0005FD39 /* LaunchScreen.xib in Resources */,
 				DCE3DBFB1A21687E0005FD39 /* Images.xcassets in Resources */,
 				DCF885861A23031900AC2747 /* 17214.png in Resources */,
+				DC03445D1A269F6D004EAA4C /* double-tap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

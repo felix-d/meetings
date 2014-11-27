@@ -8,32 +8,32 @@
 
 import Foundation
 
-enum state {
-    case HOMEPAGE, NEWCOMMITTEE, EDITCOMMITTEE
+//So we know which picker to choose
+enum CommitteeAction {
+    case NEWCOMMITTEE, EDITCOMMITTEE
 }
 
-enum FirstLaunch {
-    case BEGIN, ADDEDPOSITION, ADDEDCOMMITTEE
+enum ApplicationFlow {
+    case FIRSTUSE, HASONEPOSITION, HASPOSITIONS, HASCOMMITTEE
 }
+
 class AppData {
-    var firstLaunch = FirstLaunch.BEGIN
+    var firstLaunch = ApplicationFlow.FIRSTUSE
     var positions: [Position] = []
     var committees: [Committee] = []
     
 
     var positionId: NSUUID = NSUUID()
     var committeeId: NSUUID = NSUUID()
-    var committeeIndex = 0
+//    var committeeIndex = 0
     
     var pickerPositions: [Position] = []
     
     var tempParticipants: [Position] = []
     var tempCommitteeName = ""
     var startedEditingCommittee = false
-    
-    var currentCommittee = 0
-    
-    var currentState = state.HOMEPAGE
+
+    var currentCommitteeAction = CommitteeAction.NEWCOMMITTEE
     
     init(){
         
@@ -79,7 +79,7 @@ class AppData {
         }
     }
 
-    func returnCurrentCommitte() -> Committee? {
+    func getCurrentCommitte() -> Committee? {
         for(var i=0;i<committees.count; i++){
             if committees[i].id == committeeId {
                 return committees[i]
@@ -88,6 +88,15 @@ class AppData {
         return nil
     }
     
+    func modifyCurrentCommittee(name: String, ps: [Position]){
+        if let x = self.getCurrentCommitte()? {
+            x.positions = ps
+            x.name = name
+            x.sortPositionsAlphabetically()
+            self.clearTemp()
+        }
+    }
+
     func addPosition(p: Position){
         positions.append(p)
         positions.sort({$0.name < $1.name})
@@ -96,6 +105,9 @@ class AppData {
     func addCommittee(c: Committee){
         committees.append(c)
         committees.sort({$0.name < $1.name})
+        //we set current committee if no other committee is set
+        self.committeeId = c.id
+        self.clearTemp()
     }
     
     func removePosition(p: Position){

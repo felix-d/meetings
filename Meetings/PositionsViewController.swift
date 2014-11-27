@@ -34,7 +34,7 @@ class PositionsViewController: UITableViewController, UITableViewDataSource, UIT
             var alert = UIAlertController(title: "Notice", message: "When you have enough salary levels press next!", preferredStyle: UIAlertControllerStyle.Alert)
             var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
             alert.addAction(alertAction)
-            self.presentViewController(alert, animated: true, completion: nil)
+            //self.presentViewController(alert, animated: true, completion: nil)
             
                 var nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Bordered, target: self, action: "popToHome")
             

@@ -24,10 +24,7 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
         //we add to appData
         appData.addCommittee(committee)
         
-        //we clear temp data
-        appData.clearTemp()
-        
-        //we go back to committees
+        //we go back to committees or home page if first use
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -65,7 +62,7 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
     
     
     override func viewWillAppear(animated: Bool) {
-         appData.currentState = state.NEWCOMMITTEE
+         appData.currentCommitteeAction = CommitteeAction.NEWCOMMITTEE
         //We reload participants data
         participantsTable.reloadData()
         
