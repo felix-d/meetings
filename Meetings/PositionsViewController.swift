@@ -16,7 +16,11 @@ class PositionsViewController: UITableViewController, UITableViewDataSource, UIT
         editPositionViewController = self.storyboard?.instantiateViewControllerWithIdentifier("editposition") as UIViewController
         firstViewController = self.storyboard?.instantiateViewControllerWithIdentifier("first") as UIViewController
         
+        
         var add = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "goToNewPositionView")
+        
+        
+        
         self.navigationItem.rightBarButtonItem = add
         self.navigationItem.title = "Salary Levels"
         self.navigationItem.leftBarButtonItem?.title = "Cancel"
@@ -24,22 +28,26 @@ class PositionsViewController: UITableViewController, UITableViewDataSource, UIT
 
     }
     
+    
     override func viewWillAppear(animated: Bool) {
         
             self.tableView.reloadData()
         
         //Des que l'utilisateur rajoute une position, premiere utilisation
-        if appData.positions.count >= 1 && appData.committees.count == 0 {
-            
-            var alert = UIAlertController(title: "Notice", message: "When you have enough salary levels press next!", preferredStyle: UIAlertControllerStyle.Alert)
-            var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-            alert.addAction(alertAction)
-            //self.presentViewController(alert, animated: true, completion: nil)
+        if appData.positions.count == 1 && appData.committees.count == 0 {
+            if appData.hintFirstPosition == Hint.SHOW {
+                appData.hintFirstPosition == Hint.HIDE
+                var alert = UIAlertController(title: "Notice", message: "When you have enough salary levels press next!", preferredStyle: UIAlertControllerStyle.Alert)
+                var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+                alert.addAction(alertAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
             
                 var nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Bordered, target: self, action: "popToHome")
             
             self.navigationItem.leftBarButtonItem = nextButton
         }
+        
         
     }
     
@@ -49,6 +57,13 @@ class PositionsViewController: UITableViewController, UITableViewDataSource, UIT
         self.navigationController?.popViewControllerAnimated(true)
     }
     override func viewDidAppear(animated: Bool) {
+        if(appData.hintPositions == Hint.SHOW){
+            var alert = UIAlertController(title: "Notice", message: "You can always edit or delete salary levels by swiping cells left!", preferredStyle: UIAlertControllerStyle.Alert)
+            var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(alertAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            appData.hintPositions = Hint.HIDE
+        }
       
     }
     

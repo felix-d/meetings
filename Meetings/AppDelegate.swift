@@ -17,18 +17,6 @@ var editPositionViewController: UIViewController = UIViewController()
 var  editCommitteeViewController: UIViewController = UIViewController()
 var firstViewController: UIViewController = UIViewController()
 
-func containsPosition(array: [Position], pos: Position) -> Bool{
-    for(var i = 0; i<array.count; i++){
-        println(array[i].id)
-        println(pos.id)
-        if(array[i].id == pos.id){
-            println("true")
-            return true
-        }
-    }
-    return false
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

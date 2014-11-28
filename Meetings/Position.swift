@@ -21,4 +21,15 @@ class Position {
         self.qty = 1
         self.id = NSUUID()
     }
+    init(name: String, salary: Int, quantity: Int, id: NSUUID){
+        self.name = name
+        self.salary = salary
+        self.qty = quantity
+        self.id = id
+    }
+
+    
+    func copy() -> Position {
+        return Position(name: self.name, salary: self.salary, quantity: self.qty, id: self.id)
+    }
 }

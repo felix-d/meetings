@@ -10,11 +10,13 @@ import Foundation
 class Committee {
     
     var name :String
-    var positions: [Position]
+    var positions: [Position] = []
     var id: NSUUID
     
     init(name: String, pos: [Position]){
-        self.positions = pos
+        for p in pos {
+            self.positions.append(p.copy())
+        }
         self.name = name
         self.id = NSUUID()
     }
@@ -44,7 +46,5 @@ class Committee {
     func getPositions() -> [Position] {
         return positions
     }
-    
-       
     
 }

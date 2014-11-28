@@ -14,17 +14,20 @@ class PickerParticipantController: UIViewController, UIPickerViewDataSource, UIP
    
     
     @IBOutlet weak var myPicker: UIPickerView!
-    @IBOutlet weak var myPicker2: UIPickerView!
+   
     
     var currentPicker = UIPickerView()
     
-    
+    //On tap on current picker position
     func tapped(recognizer: UITapGestureRecognizer){
+        
+        //if picker is empty
         if(appData.pickerPositions.count==0){
             self.dismissViewControllerAnimated(true, completion: nil)
             return
         }
         
+        //get id of current selected picker
         var id = appData.pickerPositions[currentPicker.selectedRowInComponent(0)].id
        
         appData.tempParticipants.append(appData.getPosition(id)!)
@@ -38,16 +41,7 @@ class PickerParticipantController: UIViewController, UIPickerViewDataSource, UIP
         var gestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped:")
         gestureRecognizer.delegate = self
         //We set the right picker to be used
-        switch appData.currentCommitteeAction {
-        case CommitteeAction.NEWCOMMITTEE:
-            currentPicker = myPicker
-            break
-        case CommitteeAction.EDITCOMMITTEE:
-            currentPicker = myPicker2
-            break
-        default:
-            break
-        }
+        currentPicker = myPicker
         currentPicker.addGestureRecognizer(gestureRecognizer)
         
     }
@@ -62,8 +56,6 @@ class PickerParticipantController: UIViewController, UIPickerViewDataSource, UIP
         } else {
             self.currentPicker.hidden = false
         }
-        
-        
     }
     
     func gestureRecognizer(gestureRecognizer: UITapGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UITapGestureRecognizer) -> Bool {

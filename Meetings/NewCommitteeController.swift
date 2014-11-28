@@ -15,55 +15,21 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var participantsTable: UITableView!
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    //We add a committee
-    @IBAction func addCommittee(sender: UIBarButtonItem) {
-        
-        //we initialize the committee with its name and participants
-        var committee: Committee = Committee(name: committeeName.text, pos: appData.tempParticipants)
-        
-        //we add to appData
-        appData.addCommittee(committee)
-        
-        //we go back to committees or home page if first use
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-
-
+   
 
    override func viewDidLoad() {
-        //We change state to use right picker
-    var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "popVC")
     
+    //We set cancel button to parent view controller
+    var cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "popVC")
     self.navigationItem.leftBarButtonItem = cancelButton
     
     }
-    func popVC(){
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-      
-    }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        println("here")
-        self.view.endEditing(true)
-        return true
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-       checkForDoneButton()
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        checkForDoneButton()
-    }
-    
-    
     
     override func viewWillAppear(animated: Bool) {
-         appData.currentCommitteeAction = CommitteeAction.NEWCOMMITTEE
-        //We reload participants data
+        
+        appData.currentCommitteeAction = CommitteeAction.NEWCOMMITTEE
+        
+        //We reload participants data, each time after picking new ones
         participantsTable.reloadData()
         
         //If we just started editing, set label to "" and set pickerpositions to all positions
@@ -71,10 +37,56 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
             committeeName.text = ""
             appData.pickerPositions = appData.positions
         }
-       checkForDoneButton()
+        
+        checkForDoneButton()
+        
         //we started editing
         appData.startedEditingCommittee = true
     }
+    
+     //We add a committee
+    @IBAction func addCommittee(sender: UIBarButtonItem) {
+        
+        //we initialize the committee with its name and participants
+        
+        var committee: Committee = Committee(name: committeeName.text, pos: appData.tempParticipants)
+        
+        //we add to appData
+        appData.addCommittee(committee)
+    
+        appData.startedEditingCommittee = false;
+        
+        //we go back to committees or home page if first use
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
+
+    //Go to parent view controller
+    func popVC(){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
+    //Return when return is pressed
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(appData.hintAddParticipants == Hint.SHOW){
+            var alert = UIAlertController(title: "Notice", message: "Now give your committee a name and add participants to it!", preferredStyle: UIAlertControllerStyle.Alert)
+            var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(alertAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            appData.hintAddParticipants = Hint.HIDE
+        }
+    }
+    //Check for done button when we did end editing
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+       checkForDoneButton()
+    }
+    
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.committeeName.resignFirstResponder()
@@ -90,6 +102,7 @@ class NewCommitteeController: UIViewController, UITableViewDataSource, UITableVi
         cell.setCell(indexPath.row)
         return cell
     }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             appData.pickerPositions.append(appData.tempParticipants[indexPath.row])

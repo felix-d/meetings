@@ -13,6 +13,10 @@ class SettingsViewController: UITableViewController, UITableViewDataSource, UITa
     var settings = ["Committees", "Salary Levels"]
         
     override func viewDidLoad() {
+        
+        appData.hintPositions = Hint.SHOW
+        appData.hintCommittees = Hint.SHOW
+        appData.hintEditCommittee = Hint.SHOW
         super.viewDidLoad()
         committeesViewController = storyboard?.instantiateViewControllerWithIdentifier("committees") as UIViewController
         positionsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("positions") as UIViewController

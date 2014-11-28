@@ -16,7 +16,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var meetingGoal: UITextField!
     @IBOutlet weak var startMeeting: UIButton!
     
+    @IBOutlet weak var manage: UIBarButtonItem!
     @IBOutlet weak var finger: UIImageView!
+    
     var test = true
     
     override func viewDidLoad() {

@@ -24,6 +24,14 @@ class CommitteesViewController: UITableViewController, UITableViewDataSource, UI
     //ON CLEAR TEMPPARTICIPANTS QUAND ON REVIENT
     override func viewDidAppear(animated: Bool) {
           appData.clearTemp()
+        if(appData.hintCommittees == Hint.SHOW){
+            var alert = UIAlertController(title: "Notice", message: "You can always edit or delete committees by swiping cells left!", preferredStyle: UIAlertControllerStyle.Alert)
+            var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(alertAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            appData.hintCommittees = Hint.HIDE
+        }
+
     }
     
     //ON RELOAD LE DATA

@@ -17,6 +17,7 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
     
     
     override func viewDidLoad() {
+        appData.currentCommitteeAction = CommitteeAction.EDITCOMMITTEE
         
         //We set the navigation title
         self.navigationItem.title = "Edit Committee"
@@ -30,6 +31,16 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
     //We go back to home
     func popToHome(){
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(appData.hintEditCommittee == Hint.SHOW){
+            var alert = UIAlertController(title: "Notice", message: "You can always delete participants by swiping cells left!", preferredStyle: UIAlertControllerStyle.Alert)
+            var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(alertAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            appData.hintEditCommittee = Hint.HIDE
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,6 +90,8 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
         //We modify the current committee
         appData.modifyCurrentCommittee(self.committeeName.text, ps: appData.tempParticipants)
         
+        //we set back editing = false
+        appData.startedEditingCommittee = false
         //Pop the view to go back to Committee Controller
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -88,7 +101,7 @@ class EditCommitteeController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: EditParticipantCell = tableView.dequeueReusableCellWithIdentifier("newparticipantedit", forIndexPath: indexPath) as EditParticipantCell
+        let cell: ParticipantsCell = tableView.dequeueReusableCellWithIdentifier("newparticipantedit", forIndexPath: indexPath) as ParticipantsCell
         cell.setCell(indexPath.row)
         return cell
     }

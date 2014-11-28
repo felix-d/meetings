@@ -32,6 +32,9 @@
                                 <rect key="frame" x="236" y="178" width="128" height="66"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Change committee"/>
+                                <connections>
+                                    <segue destination="grF-iB-qBh" kind="presentation" id="L7m-1T-30P"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Budget" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rj3-kf-mEb">
                                 <rect key="frame" x="70" y="279" width="461" height="30"/>
@@ -67,6 +70,7 @@
                                 </state>
                                 <connections>
                                     <action selector="startMeeting:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6o5-c5-f3h"/>
+                                    <segue destination="B7f-cg-kzQ" kind="presentation" modalTransitionStyle="crossDissolve" id="l15-DD-WXW"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="double-tap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kef-eT-EYO">
@@ -113,13 +117,14 @@
                         <outlet property="changeCommittee" destination="Apb-YK-0Xx" id="zpi-fN-V6D"/>
                         <outlet property="committeeName" destination="3En-rW-q6t" id="gaB-5o-K6p"/>
                         <outlet property="finger" destination="Kef-eT-EYO" id="FuM-74-n0S"/>
+                        <outlet property="manage" destination="WrN-vl-hXf" id="rZL-DR-OVL"/>
                         <outlet property="meetingGoal" destination="oeb-ql-3NH" id="PrM-Tu-iUR"/>
                         <outlet property="startMeeting" destination="kZe-bR-Rfh" id="K4y-U1-f0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2535" y="-322"/>
+            <point key="canvasLocation" x="3347" y="-322"/>
         </scene>
         <!--Manage-->
         <scene sceneID="fVc-J7-V69">
@@ -359,6 +364,7 @@
                                         <connections>
                                             <outlet property="functionName" destination="vjj-3I-qTd" id="MJI-ne-IqI"/>
                                             <outlet property="quantity" destination="YvC-9y-Dnl" id="G14-j2-ycb"/>
+                                            <outlet property="stepper" destination="duK-4L-mBQ" id="OP9-Bk-ZYT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -534,7 +540,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BtC-t3-Yi2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741.875" y="-347.53521126760563"/>
+            <point key="canvasLocation" x="2553" y="-348"/>
         </scene>
         <!--Edit Committee-->
         <scene sceneID="WFP-iE-052">
@@ -555,7 +561,7 @@
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="261-Mw-x4c">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="73x-eV-XYj" kind="presentation" modalPresentationStyle="fullScreen" id="BBd-0e-QMq"/>
+                                                <segue destination="bVG-KC-Zh3" kind="presentation" id="Sco-xh-faG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -573,7 +579,7 @@
                                 <rect key="frame" x="0.0" y="176" width="600" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newparticipantedit" id="NSt-p5-eLo" customClass="EditParticipantCell" customModule="Meetings" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newparticipantedit" id="NSt-p5-eLo" customClass="ParticipantsCell" customModule="Meetings" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NSt-p5-eLo" id="pVc-8P-U7J">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -581,7 +587,7 @@
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Inb-oe-wlM">
                                                     <rect key="frame" x="498" y="7" width="94" height="29"/>
                                                     <connections>
-                                                        <action selector="stepChanges:" destination="NSt-p5-eLo" eventType="valueChanged" id="rF8-vJ-8Eq"/>
+                                                        <action selector="editStepChanges:" destination="NSt-p5-eLo" eventType="valueChanged" id="kYa-aE-rBD"/>
                                                     </connections>
                                                 </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0r-Hn-hIz">
@@ -612,9 +618,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="functionName" destination="hT5-Em-4tg" id="04g-r2-u4j"/>
-                                            <outlet property="myStepper" destination="Inb-oe-wlM" id="hZx-Lq-74v"/>
-                                            <outlet property="quantity" destination="B0r-Hn-hIz" id="TtJ-6w-zou"/>
+                                            <outlet property="editFunctionName" destination="hT5-Em-4tg" id="wPb-Gg-E6a"/>
+                                            <outlet property="editQuantity" destination="B0r-Hn-hIz" id="g7J-M8-h4n"/>
+                                            <outlet property="editStepper" destination="Inb-oe-wlM" id="toG-SU-tM0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -656,53 +662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA8-cU-LTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3345" y="-307"/>
-        </scene>
-        <!--Picker Participant Controller-->
-        <scene sceneID="rTy-Qs-HgW">
-            <objects>
-                <viewController id="73x-eV-XYj" customClass="PickerParticipantController" customModule="Meetings" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ah9-vp-CS7"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lqy-SA-mvp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oqr-6P-nuF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byv-bp-QiP">
-                                <rect key="frame" x="140" y="192" width="320" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="73x-eV-XYj" id="0zt-5U-DBW"/>
-                                    <outlet property="delegate" destination="73x-eV-XYj" id="yPQ-5r-8Yo"/>
-                                </connections>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y26-mY-86S">
-                                <rect key="frame" x="283" y="416" width="35" height="30"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack:" destination="73x-eV-XYj" eventType="touchUpInside" id="aiW-2L-BPq"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="y26-mY-86S" firstAttribute="centerX" secondItem="byv-bp-QiP" secondAttribute="centerX" id="Ded-g5-OXZ"/>
-                            <constraint firstItem="byv-bp-QiP" firstAttribute="top" secondItem="Ah9-vp-CS7" secondAttribute="bottom" constant="172" id="The-mc-Wla"/>
-                            <constraint firstItem="byv-bp-QiP" firstAttribute="centerY" secondItem="oqr-6P-nuF" secondAttribute="centerY" id="WEv-WQ-OIW"/>
-                            <constraint firstItem="y26-mY-86S" firstAttribute="top" secondItem="byv-bp-QiP" secondAttribute="bottom" constant="8" symbolic="YES" id="i8s-51-E49"/>
-                            <constraint firstItem="byv-bp-QiP" firstAttribute="centerX" secondItem="oqr-6P-nuF" secondAttribute="centerX" id="rSV-on-Py8"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="myPicker2" destination="byv-bp-QiP" id="Re9-Gw-cJz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P46-md-E6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4102.5" y="-296.83098591549293"/>
+            <point key="canvasLocation" x="4157" y="-307"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="flq-6x-2cD">
@@ -722,10 +682,56 @@
             </objects>
             <point key="canvasLocation" x="2205" y="1095.4225352112676"/>
         </scene>
-        <!--View Controller-->
+        <!--Pick Committee Controller-->
+        <scene sceneID="Jnj-O1-jqn">
+            <objects>
+                <viewController id="grF-iB-qBh" customClass="PickCommitteeController" customModule="Meetings" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UrK-WP-tYF"/>
+                        <viewControllerLayoutGuide type="bottom" id="zen-n5-H0k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vXb-x7-cLc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zC3-eZ-j1t">
+                                <rect key="frame" x="0.0" y="219" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="grF-iB-qBh" id="DQb-uI-xrk"/>
+                                    <outlet property="delegate" destination="grF-iB-qBh" id="XzC-6p-s93"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgC-yM-ErW">
+                                <rect key="frame" x="283" y="389" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToHomeScreen:" destination="grF-iB-qBh" eventType="touchUpInside" id="5hI-rX-rZ9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zC3-eZ-j1t" secondAttribute="trailing" id="Vuo-Uz-aQW"/>
+                            <constraint firstItem="zC3-eZ-j1t" firstAttribute="centerY" secondItem="vXb-x7-cLc" secondAttribute="centerY" id="dzt-33-ugC"/>
+                            <constraint firstItem="NgC-yM-ErW" firstAttribute="top" secondItem="zC3-eZ-j1t" secondAttribute="bottom" constant="8" symbolic="YES" id="fCK-6K-J5J"/>
+                            <constraint firstItem="zC3-eZ-j1t" firstAttribute="leading" secondItem="vXb-x7-cLc" secondAttribute="leading" id="igW-jT-qBQ"/>
+                            <constraint firstItem="zC3-eZ-j1t" firstAttribute="centerX" secondItem="NgC-yM-ErW" secondAttribute="centerX" id="uUC-JJ-1DD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="committeePicker" destination="zC3-eZ-j1t" id="WI3-J6-FKl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HbN-Rl-VTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2694" y="-1031"/>
+        </scene>
+        <!--Meter View Controller-->
         <scene sceneID="Len-oX-kFG">
             <objects>
-                <viewController id="B7f-cg-kzQ" sceneMemberID="viewController">
+                <viewController id="B7f-cg-kzQ" customClass="MeterViewController" customModule="Meetings" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6JW-g5-ckv"/>
                         <viewControllerLayoutGuide type="bottom" id="zZX-xQ-pBR"/>
@@ -733,15 +739,58 @@
                     <view key="view" contentMode="scaleToFill" id="pZG-6A-aUa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGD-up-JeZ">
+                                <rect key="frame" x="16" y="161" width="568" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00 $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wl2-zy-FlW">
+                                <rect key="frame" x="16" y="240" width="568" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txd-fP-TBE">
+                                <rect key="frame" x="280" y="331" width="41" height="30"/>
+                                <state key="normal" title="STOP">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stop:" destination="B7f-cg-kzQ" eventType="touchUpInside" id="NQb-Ip-Z1z"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wl2-zy-FlW" firstAttribute="leading" secondItem="pZG-6A-aUa" secondAttribute="leadingMargin" id="1gA-ge-jrM"/>
+                            <constraint firstAttribute="centerX" secondItem="PGD-up-JeZ" secondAttribute="centerX" id="7Mz-hu-Dd6"/>
+                            <constraint firstItem="txd-fP-TBE" firstAttribute="top" secondItem="wl2-zy-FlW" secondAttribute="bottom" constant="45" id="PI2-78-g5b"/>
+                            <constraint firstItem="PGD-up-JeZ" firstAttribute="centerX" secondItem="wl2-zy-FlW" secondAttribute="centerX" id="Q4c-8q-t7M"/>
+                            <constraint firstItem="PGD-up-JeZ" firstAttribute="trailing" secondItem="pZG-6A-aUa" secondAttribute="trailingMargin" id="QTn-sF-yU1"/>
+                            <constraint firstItem="txd-fP-TBE" firstAttribute="centerX" secondItem="wl2-zy-FlW" secondAttribute="centerX" id="SqN-uB-8iM"/>
+                            <constraint firstItem="PGD-up-JeZ" firstAttribute="leading" secondItem="pZG-6A-aUa" secondAttribute="leadingMargin" id="Up1-eB-mno"/>
+                            <constraint firstItem="PGD-up-JeZ" firstAttribute="top" secondItem="6JW-g5-ckv" secondAttribute="bottom" constant="141" id="Ut5-Vi-c9S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wl2-zy-FlW" secondAttribute="trailing" id="Vdd-FV-Tod"/>
+                            <constraint firstItem="wl2-zy-FlW" firstAttribute="top" secondItem="6JW-g5-ckv" secondAttribute="bottom" constant="220" id="xAD-ag-ckg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cost" destination="wl2-zy-FlW" id="BxA-pY-9Di"/>
+                        <outlet property="timer" destination="PGD-up-JeZ" id="ZPO-XF-Ywh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWq-w7-hXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3388" y="-1069"/>
         </scene>
     </scenes>
     <resources>
         <image name="double-tap.png" width="256" height="256"/>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sco-xh-faG"/>
+    </inferredMetricsTieBreakers>
 </document>

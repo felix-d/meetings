@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DC03445D1A269F6D004EAA4C /* double-tap.png in Resources */ = {isa = PBXBuildFile; fileRef = DC03445C1A269F6D004EAA4C /* double-tap.png */; };
+		DC8A8BA01A2836AF0049150F /* PickCommitteeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8A8B9F1A2836AF0049150F /* PickCommitteeController.swift */; };
+		DCA3E6CF1A283F6B001202A7 /* MeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3E6CE1A283F6B001202A7 /* MeterViewController.swift */; };
 		DCE3DBF21A21687E0005FD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */; };
 		DCE3DBF41A21687E0005FD39 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF31A21687E0005FD39 /* FirstViewController.swift */; };
 		DCE3DBF61A21687E0005FD39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3DBF51A21687E0005FD39 /* SettingsViewController.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		DC03445C1A269F6D004EAA4C /* double-tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "double-tap.png"; path = "../../../Downloads/double-tap.png"; sourceTree = "<group>"; };
+		DC8A8B9F1A2836AF0049150F /* PickCommitteeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCommitteeController.swift; sourceTree = "<group>"; };
+		DCA3E6CE1A283F6B001202A7 /* MeterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeterViewController.swift; sourceTree = "<group>"; };
 		DCE3DBEC1A21687E0005FD39 /* Meetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meetings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE3DBF01A21687E0005FD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE3DBF11A21687E0005FD39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,10 +127,12 @@
 				DCE3DBF51A21687E0005FD39 /* SettingsViewController.swift */,
 				DCE3DBF31A21687E0005FD39 /* FirstViewController.swift */,
 				DCF885831A22F14000AC2747 /* EditPositionViewController.swift */,
+				DCA3E6CE1A283F6B001202A7 /* MeterViewController.swift */,
 				DCF40B1A1A22B52500BD69B8 /* CommitteesViewController.swift */,
 				DCF40B1C1A22BC6200BD69B8 /* PositionsViewController.swift */,
 				DCF40B1E1A22BE5300BD69B8 /* NewPositionController.swift */,
 				DCF8857D1A22D54700AC2747 /* PickerParticipantController.swift */,
+				DC8A8B9F1A2836AF0049150F /* PickCommitteeController.swift */,
 				DCE3DBF71A21687E0005FD39 /* Main.storyboard */,
 				DCE3DC471A22A6E70005FD39 /* MyPlayground.playground */,
 				DCF885851A23031900AC2747 /* 17214.png */,
@@ -270,6 +276,8 @@
 				DCE3DBF61A21687E0005FD39 /* SettingsViewController.swift in Sources */,
 				DCF8857E1A22D54700AC2747 /* PickerParticipantController.swift in Sources */,
 				DCF8857C1A22C48800AC2747 /* TabBarController.swift in Sources */,
+				DCA3E6CF1A283F6B001202A7 /* MeterViewController.swift in Sources */,
+				DC8A8BA01A2836AF0049150F /* PickCommitteeController.swift in Sources */,
 				DCF8858A1A2313F800AC2747 /* EditCommitteeController.swift in Sources */,
 				DCF40B211A22BE7600BD69B8 /* NewCommitteeController.swift in Sources */,
 				DCF885841A22F14000AC2747 /* EditPositionViewController.swift in Sources */,

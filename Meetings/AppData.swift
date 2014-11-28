@@ -17,11 +17,32 @@ enum ApplicationFlow {
     case FIRSTUSE, HASONEPOSITION, HASPOSITIONS, HASCOMMITTEE
 }
 
+enum Hint {
+    case SHOW, HIDE
+}
+
+func containsPosition(array: [Position], pos: Position) -> Bool{
+    for(var i = 0; i<array.count; i++){
+        if(array[i].id == pos.id){
+            return true
+        }
+    }
+    return false
+}
+
+
 class AppData {
-    var firstLaunch = ApplicationFlow.FIRSTUSE
+    
+    var appFlow = ApplicationFlow.FIRSTUSE
+    var currentCommitteeAction = CommitteeAction.NEWCOMMITTEE
+    var hintPositions = Hint.HIDE
+    var hintCommittees = Hint.HIDE
+    var hintFirstPosition = Hint.SHOW
+    var hintEditCommittee = Hint.HIDE
+    var hintAddParticipants = Hint.SHOW
+    
     var positions: [Position] = []
     var committees: [Committee] = []
-    
 
     var positionId: NSUUID = NSUUID()
     var committeeId: NSUUID = NSUUID()
@@ -33,10 +54,20 @@ class AppData {
     var tempCommitteeName = ""
     var startedEditingCommittee = false
 
-    var currentCommitteeAction = CommitteeAction.NEWCOMMITTEE
     
     init(){
         
+    }
+    
+    func getSalaryPerSecond() -> Float {
+        var cc: Committee = self.getCurrentCommitte()!
+        var totalSalaryPerSecond: Float = 0;
+        for(var i=0;i<cc.positions.count;i++){
+            var salaryPerSecondForPerson: Float = Float(cc.positions[i].salary)/365/24/60/60
+            var salaryPerSecondForQuantity: Float = salaryPerSecondForPerson * Float(cc.positions[i].qty)
+            totalSalaryPerSecond += salaryPerSecondForQuantity
+        }
+        return totalSalaryPerSecond
     }
     func getPosition(id: NSUUID) -> Position? {
         for(index, p) in enumerate(positions){
@@ -45,6 +76,11 @@ class AppData {
             }
         }
         return nil
+    }
+    
+    func getCommitteesExceptCurrent() -> [Committee]{
+        
+        return committees.filter({$0.id != self.committeeId})
     }
     
     func getCommittee(id: NSUUID) -> Committee? {
@@ -61,8 +97,6 @@ class AppData {
             for (index,p) in enumerate(c.positions) {
                 if !containsPosition(positions, p){
                     c.positions.removeAtIndex(index)
-                } else {
-                    
                 }
             }
         }
@@ -71,8 +105,9 @@ class AppData {
             for(var k=0;k < committees[i].positions.count; k++){
                 for(var j=0;j<positions.count;j++){
                     if committees[i].positions[k].id == positions[j].id {
-                        println("equal")
-                        committees[i].positions[k] = positions[j]
+                        var q = committees[i].positions[k].qty
+                        committees[i].positions[k] = positions[j].copy()
+                        committees[i].positions[k].qty = q
                     }
                 }
             }
@@ -108,6 +143,7 @@ class AppData {
         //we set current committee if no other committee is set
         self.committeeId = c.id
         self.clearTemp()
+        println(committees[0].positions[0].qty)
     }
     
     func removePosition(p: Position){
@@ -133,6 +169,9 @@ class AppData {
         tempCommitteeName = ""
         startedEditingCommittee = false
         pickerPositions = []
+        for(var i=0;i<positions.count;i++){
+            self.positions[i].qty = 1
+        }
 
     }
 
